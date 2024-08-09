@@ -9,13 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 public class Login {
     private WebDriver driver;
 
-    @FindBy(id = "userEmail") // Update with actual ID or locator
+    @FindBy(id = "userEmail")
     private WebElement usernameField;
 
-    @FindBy(id = "userPassword") // Update with actual ID or locator
+    @FindBy(id = "userPassword")
     private WebElement passwordField;
 
-    @FindBy(id = "login") // Update with actual ID or locator
+    @FindBy(id = "login")
     private WebElement loginButton;
 
     public Login(WebDriver driver) {

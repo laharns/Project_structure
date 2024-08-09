@@ -1,6 +1,7 @@
 package projectStructure.StepDefinitions;
 
 import projectStructure.PageObject.Login;
+import projectStructure.ProjectManager.PageObjectManager;
 import projectStructure.Utils.ConfigReader;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -11,18 +12,21 @@ import org.testng.Assert;
 public class LoginStepDefinitions {
 
     public WebDriver driver;
-    public Login loginPage;
+   public Login loginPage;
+   public PageObjectManager pageObjectManager;
     public ConfigReader configReader;
 
     public LoginStepDefinitions() {
-        configReader = new ConfigReader();
+       // configReader = new ConfigReader();
     }
 
     @When("I navigate to the login page")
     public void I_navigate_to_the_login_page() {
         driver = new ChromeDriver();
         driver.get("https://rahulshettyacademy.com/client/");
-        loginPage = new Login(driver);
+        pageObjectManager = new PageObjectManager(driver);
+        loginPage = pageObjectManager.getLoginPage();
+       // loginPage = new Login(driver);
     }
 
     @When("^I login with username (.+) and password (.+)$")
@@ -36,9 +40,10 @@ public class LoginStepDefinitions {
     }
 
     @Then("I should see the homepage")
-    public void I_should_see_the_homepage() {
+    public void I_should_see_the_homepage() throws InterruptedException {
         String currentUrl = driver.getCurrentUrl();
-        Assert.assertFalse(currentUrl.contains("homepage"), "Login was not successful. Current URL: " + currentUrl);
+        Thread.sleep(2000);
+        Assert.assertTrue(currentUrl.contains("homepage"), "Login was not successful. Current URL: " + currentUrl);
         driver.quit();
     }
 }

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite parallel="tests" name="All Test Suite" verbose="2" preserve-order="true">
+    <listeners>
+    <listener class-name="projectStructure.Retry.CustomAnnotationTransformer"/>
+    </listeners>
     <test name="Regression Tests">
+
         <classes>
             <class name="projectStructure.Runner.LoginRunner"/>
             <class name="projectStructure.Runner.Registerrunner"/>

@@ -8,11 +8,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import projectStructure.PageObject.Registration;
+import projectStructure.ProjectManager.PageObjectManager;
 import projectStructure.Utils.ConfigReader;
 
 public class RegistrationStepDefintions {
     public WebDriver driver;
     public Registration registrationPage;
+    public PageObjectManager pageObjectManager;
     public ConfigReader configReader;
 
     @Given("I open the browser")
@@ -24,12 +26,14 @@ public class RegistrationStepDefintions {
     @When("I navigate to the registration page")
     public void I_navigate_to_the_registration_page() {
         driver.get("https://rahulshettyacademy.com/client/");
+        pageObjectManager = new PageObjectManager(driver);
+        registrationPage = pageObjectManager.geregistrationtPage();
     }
 
     @And("I click on the register button")
     public void I_click_on_the_register_button() {
-        registrationPage = new Registration(driver); // Initialize the page object
-        registrationPage.clickRegisterButton(); // Click the register button/link
+        //registrationPage = new Registration(driver); // Initialize the page object
+        registrationPage.clickRegisterButton();
     }
 
     @And("I enter valid registration details")
@@ -50,6 +54,7 @@ public class RegistrationStepDefintions {
 
     @Then("I submit the registration form")
     public void I_submit_the_registration_form() {
+        driver.quit();
 
     }
 
