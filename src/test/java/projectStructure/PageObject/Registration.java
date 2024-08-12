@@ -7,13 +7,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import projectStructure.Locators.PageLocators;
 
 import java.time.Duration;
 
 public class Registration {
-    private WebDriver driver;
+    public PageLocators locators;
 
-    @FindBy(xpath = "//a[normalize-space()='Register']")
+   /* @FindBy(xpath = "//a[normalize-space()='Register']")
     private WebElement btnregister;
 
     @FindBy(id = "firstName")
@@ -38,29 +39,31 @@ public class Registration {
     private WebElement usercheckboxfiled;
 
     @FindBy(id = "login")
-    private WebElement RegisterButton;
+    private WebElement RegisterButton;*/
 
     public Registration(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        //this.driver = driver;
+        //PageFactory.initElements(driver, this);
+        locators = PageFactory.initElements(driver, PageLocators.class);
+
     }
 
     public void clickRegisterButton() {
-        btnregister.click();
+        locators.btnregister.click();
     }
     public void register(String firstName, String lastName, String email, String mobile, String Rpassword, String confirmPassword, boolean acceptTerms) {
-        firstnamefiled.sendKeys(firstName);
-        lastnamefiled.sendKeys(lastName);
-        useremailfiled.sendKeys(email);
-        usermobilefiled.sendKeys(mobile);
-        userpasswordfiled.sendKeys(Rpassword);
-        userconfirmpasswordfiled.sendKeys(confirmPassword);
+        locators.firstnamefiled.sendKeys(firstName);
+        locators.lastnamefiled.sendKeys(lastName);
+        locators.useremailfiled.sendKeys(email);
+        locators.usermobilefiled.sendKeys(mobile);
+        locators.userpasswordfiled.sendKeys(Rpassword);
+        locators.userconfirmpasswordfiled.sendKeys(confirmPassword);
         if (acceptTerms) {
-            if (!usercheckboxfiled.isSelected()) {
-                usercheckboxfiled.click();
+            if (!locators.usercheckboxfiled.isSelected()) {
+                locators.usercheckboxfiled.click();
             }
         }
-        RegisterButton.click();
+        locators.RegisterButton.click();
     }
 
 
