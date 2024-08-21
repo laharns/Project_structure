@@ -20,5 +20,4 @@ public class PageLocators {
     @FindBy(id = "confirmPassword") public WebElement userconfirmpasswordfiled;
     @FindBy(xpath = "//input[@type='checkbox']") public WebElement usercheckboxfiled;
     @FindBy(id = "login") public WebElement RegisterButton;
-
 }

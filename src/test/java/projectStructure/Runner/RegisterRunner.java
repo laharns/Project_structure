@@ -14,5 +14,5 @@ import io.cucumber.testng.CucumberOptions;
         }
         // "io.qameta.allure.cucumber7jvm.AllureCucumber7Jv
 )
-public class Registerrunner extends AbstractTestNGCucumberTests {
+public class RegisterRunner extends AbstractTestNGCucumberTests {
 }

@@ -38,7 +38,7 @@ public class RegistrationStepDefintions {
 
     @And("I enter valid registration details")
     public void I_enter_valid_registration_details() {
-        configReader = new ConfigReader();
+        configReader = new ConfigReader(System.getProperty("user.dir") + "/src/test/java/projectStructure/testdata.properties");
         String testfirstname = configReader.getProperty("firstName");
         String testlastname = configReader.getProperty("lastName");
         String testemail = configReader.getProperty("email");

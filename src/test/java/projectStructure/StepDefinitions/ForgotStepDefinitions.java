@@ -41,7 +41,8 @@ public class ForgotStepDefinitions {
     }
     @And("I enter valid forgot details")
     public void I_enter_valid_forgot_details(){
-        configReader = new ConfigReader();
+        configReader = new ConfigReader(System.getProperty("user.dir") + "/src/test/java/projectStructure/testdata.properties");
+
         String testemail = configReader.getProperty("emailfiled");
         String tesfpassword = configReader.getProperty("fopasswordfiled");
         String tesfcpassword = configReader.getProperty("focpasswordfiled");

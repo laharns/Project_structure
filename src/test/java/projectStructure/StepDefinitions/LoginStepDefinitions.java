@@ -31,7 +31,7 @@ public class LoginStepDefinitions {
 
     @When("^I login with username (.+) and password (.+)$")
     public void I_login_with_username_and_password(String emailkey,String passkey) {
-        configReader = new ConfigReader();
+        configReader = new ConfigReader(System.getProperty("user.dir") + "/src/test/java/projectStructure/testdata.properties");
        // String testUsername = (username.equals("username")) ? configReader.getProperty("username") : username;
         //String testPassword = (password.equals("password")) ? configReader.getProperty("password") : password;
         String testUsername = configReader.getProperty(emailkey);

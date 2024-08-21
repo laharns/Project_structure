@@ -8,8 +8,10 @@
 
         <classes>
             <class name="projectStructure.Runner.LoginRunner"/>
-            <class name="projectStructure.Runner.Registerrunner"/>
+            <class name="projectStructure.Runner.RegisterRunner"/>
             <class name="projectStructure.Runner.ForgotRunner"/>
         </classes>
     </test>
 </suite>
+
+
