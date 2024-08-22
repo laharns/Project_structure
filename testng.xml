@@ -5,7 +5,6 @@
     <listener class-name="projectStructure.Retry.CustomAnnotationTransformer"/>
     </listeners>
     <test name="Regression Tests">
-
         <classes>
             <class name="projectStructure.Runner.LoginRunner"/>
             <class name="projectStructure.Runner.RegisterRunner"/>

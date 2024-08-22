@@ -24,12 +24,10 @@ public class Login {
        this.driver = driver;
         //PageFactory.initElements(driver, this);
         //locators = PageFactory.initElements(driver, PageLocators.class); //locatore file in java class
-        //this.locatorReader = new LocatorReader("src/test/java/projectStructure/locators.Properties"); // Path to the properties file
         this.configReader = new ConfigReader(System.getProperty("user.dir") + "/src/test/java/projectStructure/locators.properties");
-
     }
 
-    public void login(String username, String password) {
+    public void login(String email, String pass) {
         /*locators.usernameField.sendKeys(username);
         locators.passwordField.sendKeys(password);
         locators.loginButton.click();*/
@@ -37,9 +35,10 @@ public class Login {
         WebElement passwordField = configReader.getElement(driver, "login.passwordField.id");
         WebElement loginButton = configReader.getElement(driver, "login.loginButton.id");
 
-        usernameField.sendKeys(username);
-        passwordField.sendKeys(password);
+        usernameField.sendKeys(email);
+        passwordField.sendKeys(pass);
         loginButton.click();
+
     }
 }
     

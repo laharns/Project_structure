@@ -30,12 +30,12 @@ public class LoginStepDefinitions {
     }
 
     @When("^I login with username (.+) and password (.+)$")
-    public void I_login_with_username_and_password(String emailkey,String passkey) {
+    public void I_login_with_username_and_password(String email,String pass) {
         configReader = new ConfigReader(System.getProperty("user.dir") + "/src/test/java/projectStructure/testdata.properties");
        // String testUsername = (username.equals("username")) ? configReader.getProperty("username") : username;
         //String testPassword = (password.equals("password")) ? configReader.getProperty("password") : password;
-        String testUsername = configReader.getProperty(emailkey);
-        String testPassword = configReader.getProperty(passkey);
+        String testUsername = configReader.getProperty(email);
+        String testPassword = configReader.getProperty(pass);
         loginPage.login(testUsername, testPassword);
     }
 
