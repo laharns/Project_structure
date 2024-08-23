@@ -1,8 +1,6 @@
 package projectStructure.Utils;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -24,7 +22,7 @@ public class ConfigReader {
     public String getProperty(String key) {
         return properties.getProperty(key);
     }
-    public WebElement getElement(WebDriver driver, String key) {
+    public By getElement(String key) {
         String locatorValue = properties.getProperty(key);
 
         if (locatorValue == null) {
@@ -32,9 +30,9 @@ public class ConfigReader {
         }
 
         if (key.endsWith(".xpath")) {
-            return driver.findElement(By.xpath(locatorValue));
+            return By.xpath(locatorValue);
         } else if (key.endsWith(".id")) {
-            return driver.findElement(By.id(locatorValue));
+            return By.id(locatorValue);
         } else {
             throw new RuntimeException("Unsupported locator type for key: " + key);
         }

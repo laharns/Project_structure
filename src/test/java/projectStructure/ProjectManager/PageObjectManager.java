@@ -5,11 +5,12 @@ import projectStructure.PageObject.Forgot;
 import projectStructure.PageObject.Login;
 import projectStructure.PageObject.Registration;
 
-public class PageObjectManager {
+public class PageObjectManager  {
     public WebDriver driver;
     public Login loginPage;
     public Registration registrationPage;
     public Forgot forgotPage;
+
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;

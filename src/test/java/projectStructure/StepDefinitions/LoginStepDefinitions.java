@@ -30,20 +30,21 @@ public class LoginStepDefinitions {
     }
 
     @When("^I login with username (.+) and password (.+)$")
-    public void I_login_with_username_and_password(String email,String pass) {
+    public void I_login_with_username_and_password(String email,String pass) throws InterruptedException {
         configReader = new ConfigReader(System.getProperty("user.dir") + "/src/test/java/projectStructure/testdata.properties");
        // String testUsername = (username.equals("username")) ? configReader.getProperty("username") : username;
         //String testPassword = (password.equals("password")) ? configReader.getProperty("password") : password;
         String testUsername = configReader.getProperty(email);
         String testPassword = configReader.getProperty(pass);
+
         loginPage.login(testUsername, testPassword);
     }
 
     @Then("I should see the homepage")
-    public void I_should_see_the_homepage() throws InterruptedException {
+    public void I_should_see_the_homepage()  {
         String currentUrl = driver.getCurrentUrl();
-        Thread.sleep(2000);
+
         Assert.assertTrue(currentUrl.contains("homepage"), "Login was not successful. Current URL: " + currentUrl);
-        driver.quit();
+        driver.close();
     }
 }
