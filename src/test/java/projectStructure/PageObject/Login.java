@@ -38,6 +38,7 @@ public class Login {
         usernameField.sendKeys(email);
         passwordField.sendKeys(pass);
         loginButton.click();
+        driver.quit();
 
     }
 }
